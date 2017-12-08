@@ -1,0 +1,13 @@
+body {
+    background-color: firebrick;
+    text-align: center;
+}
+
+h1, h3 {
+    font-size: 48px;
+    color: floralwhite;
+}
+
+h3 {
+    font-size: 24px;
+}

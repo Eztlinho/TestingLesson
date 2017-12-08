@@ -1,0 +1,17 @@
+<html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <h1> Roman Empire vs Zombie Rampage </h1>
+
+        <h3>Your Roman Name is : </h3><h3 id="name"></h3>
+    <script type="text/javascript">
+        var sPageURL = window.location.search.substring(1);
+        var sParameterName = sPageURL.split('=');
+        var romanName = sParameterName[1];
+        
+        document.getElementById("name").innerHTML = romanName;        
+    </script>
+    </body>
+</html>
