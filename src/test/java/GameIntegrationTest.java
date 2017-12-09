@@ -26,6 +26,7 @@ public class GameIntegrationTest {
     private Game instance;
     private Praetorian praetorian;
     private Zombie zombie;
+    private Wizard wizard;
 
     @Before
     public void init() {
@@ -33,6 +34,7 @@ public class GameIntegrationTest {
         instance = Game.getInstance();
         praetorian = instance.getPraetorian();
         zombie = instance.getZombie();
+        wizard = instance.getWizard();
     }
 
     @Test
@@ -42,11 +44,17 @@ public class GameIntegrationTest {
 
         assertLife(150d,30d);
 
+        wizard.hit(praetorian);
+        assertLife(144.5, 30d);
+
         Mockito.when(Math.random()).thenReturn(0.99d);
         praetorian.hit(zombie);
-        assertLife(150d,-16d);
+        assertLife(144.5,-16d);
 
         Mockito.when(Math.random()).thenReturn(0.5d);
+        wizard.heal(praetorian);
+        assertLife(149.5, -16d);
+
         praetorian.hit(zombie);
     }
 

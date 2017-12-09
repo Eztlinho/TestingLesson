@@ -6,6 +6,7 @@ public class Game {
     public static Game instance;
     private Praetorian praetorian = new Praetorian();
     private Zombie zombie = new Zombie();
+    private Wizard wizard = new Wizard();
 
     public static Game getInstance() {
         if (instance == null) {
@@ -18,5 +19,8 @@ public class Game {
     }
     public Zombie getZombie() {
         return zombie;
+    }
+    public Wizard getWizard() {
+        return wizard;
     }
 }
