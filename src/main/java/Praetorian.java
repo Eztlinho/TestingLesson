@@ -5,7 +5,11 @@ public class Praetorian extends  Human{
     };
 
     public double getHitForce() {
-        return Math.random()>0.95 ? getCriticalHitForce() : getDefaultHitForce();
+        return isLuckyHit() ? getCriticalHitForce() : getDefaultHitForce();
+    }
+
+    private boolean isLuckyHit() {
+        return Math.random()>0.95;
     }
 
     private double getCriticalHitForce() {

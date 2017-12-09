@@ -8,13 +8,13 @@ import org.openqa.selenium.WebDriver;
  */
 public class WebdriverTest {
 
-    public static final WebDriver WEB_DRIVER = MyWebdriver.getInstance().driver;
+    public static WebDriver WEB_DRIVER = null;
 
     @Test
     public void testNameIsCorrecltySend() throws InterruptedException {
         MyWebdriver.getInstance().initWebdriver("file:///C:/Users/Steve/Projets/JavaTests/webapp/index.html");
-
-        Assert.assertEquals(WEB_DRIVER.findElement(By.xpath("//h1")).getText(), "Roman Empire vs Zombie Rampage");
+        WEB_DRIVER = MyWebdriver.getInstance().driver;
+        Assert.assertEquals(WEB_DRIVER.findElement(By.xpath("//h1")).getText().trim(), "Roman Empire vs Zombie Rampage");
         WEB_DRIVER.findElement(By.xpath("//input[@type='text']")).sendKeys("LeGuerrier92");
         WEB_DRIVER.findElement(By.xpath("//input[@type='submit']")).click();
 
